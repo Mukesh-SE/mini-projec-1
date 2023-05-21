@@ -1,0 +1,52 @@
+
+*{
+   box-sizing: border-box;
+}
+
+body{
+   margin: 0;
+   width: 100%;
+   height: 100vh;
+   overflow: hidden;
+   background-color: #242424;
+   display: grid;
+   place-content: center;
+}
+
+button{
+   padding: 20px 30px;
+   letter-spacing: 2px;
+   position: relative;
+   overflow: hidden;
+   font-family: sans-serif;
+   font-weight: bold;
+   font-size: 20px;
+   background-color: brown;
+   color: #fff;
+   border-radius: 5px;
+   border: none;
+
+   cursor: pointer;
+}
+
+button:focus{
+   outline: none;
+}
+
+button .circle{
+   position: absolute;
+   width: 100px;
+   height: 100px;
+   background-color: #fff;
+   border-radius: 100%;
+   transform: translate(-50%, -50%) scale(0);
+
+   animation: scale 0.5s ease-in-out;
+}
+
+@keyframes scale{
+   to{
+      transform: translate(-50%, -50%) scale(3);
+      opacity: 0;
+   }
+}

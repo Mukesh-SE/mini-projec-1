@@ -1,0 +1,128 @@
+:root{
+   --faq-bg: #ff6b42c4;
+   --faq-bg-active: #fe6c44;
+   --font-cmt-clr: #0400ff;
+   --font-cmt-bfr-clr: #0cf000;
+   --title-color: #C6FFDD;
+   --ans-clr: #F1EEE9;
+}
+
+*{
+   box-sizing: border-box;
+}
+body{
+   background-color: #D6E4E5;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+h1{
+   margin: 50px 0 30px;
+   text-align: center;
+
+}
+.container{
+   max-width: 600px;
+   margin: 0 auto;}
+.faq{
+   background-color: var(--faq-bg);
+   border: 1px solid gray;
+   border-radius: 6px;
+   margin: 20px 0;
+   padding: 30px;
+   overflow: hidden;
+
+   position: relative;
+
+   transition: all .5s ease-in-out;
+}
+
+.faq.active{
+   background-color: var(--faq-bg-active);
+   box-shadow: 2px 2px 4px rgba(128, 128, 128, 0.62), -2px -2px 4px rgba(128, 128, 128, 0.625);
+}
+.faq.active::before,
+.faq.active::after{
+   content: "\f075"; /* UNICODE OF COMMENT ICON */
+   font-family: "Font Awesome 5 Free";
+   color: var(--font-cmt-clr);
+   font-size: 7rem;
+   opacity: 0.2;
+
+   position: absolute;
+   top: 20px;
+   right: 20px;
+   z-index: 0;
+}
+.faq.active::before{
+   color: var(--font-cmt-bfr-clr);
+   top: -10px;
+   right: -30px;
+   transform: rotateY();
+}
+.faq-title{
+   letter-spacing: 1.5px;
+   color: var(--title-color);
+   font-weight: 500;
+   font-size: 1.4rem;
+   text-transform: capitalize;
+}
+.faq-text{
+   display: none;
+
+   color: var(--ans-clr);
+   letter-spacing: 1px;
+   text-transform: uppercase;
+   font-size: 1.1em;
+
+   margin: 30px 0 0;
+}
+.faq.active .faq-text{
+   display: block;
+}
+
+.faq-toggle{
+   background-color: transparent;
+   color: white;
+   border: 0;
+   border-radius: 100%;
+   width: 30px;
+   height: 30px;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 1.3rem;
+   padding: 0;
+
+   position: absolute;
+   top: 30px;
+   right: 30px;
+   z-index: 1;  
+
+
+   cursor: pointer;
+}
+.faq-toggle:focus{
+   outline: 0;
+}
+.faq-toggle .fa-times{
+   display: none;
+}
+
+.faq.active .faq-toggle .fa-times{
+   display: block;
+}
+.faq.active .faq-toggle .fa-chevron-down{
+   display: none;
+}
+.faq.active .faq-toggle{
+   color: var(--faq-bg-active);
+   background-color: var(--title-color);
+   text-align: center;
+   vertical-align: middle;
+
+   transition: all .1s ease-out;
+}
+.faq.active .faq-toggle:active{
+   box-shadow: 0 0 5px white, 0 0 0 10px #f3947aae;
+}
+
